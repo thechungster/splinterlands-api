@@ -1,2 +1,4 @@
 # splinterlands-api
-Package for the Splinterlands API. Typed responses
+Web package for the Splinterlands API.
+
+I
