@@ -28,7 +28,7 @@ export function getCardImageBaseById(cardId: number, gold = false) {
   return getCardImageBaseByCardInfo(cardName, edition, cardId, gold);
 }
 
-export function getCardImagLevelById(cardId: number, level: number, isGold = false) {
+export function getCardImageLevelById(cardId: number, level: number, isGold = false) {
   if (cardId > cards.length) {
     throw new Error('This card is not yet supported. Please make an issue request for the package');
   }
@@ -41,8 +41,8 @@ export function getCardImagLevelById(cardId: number, level: number, isGold = fal
 }
 
 function getCardImageBaseByCardInfo(cardName: string, edition: number, id: number, gold = false): string {
-  const extension = id > NEW_REWARD_CARD_ID_START ? 'jpg' : 'png';
-  let url = `${IMAGE_BASE_URL}/${CARD_SETS[edition]}/${cardName}`;
+  const extension = id > NEW_REWARD_CARD_ID_START ? '.jpg' : '.png';
+  let url = `${IMAGE_BASE_URL}${CARD_SETS[edition]}/${cardName}`;
   if (gold) {
     url += '_gold';
   }
@@ -53,6 +53,6 @@ function getCardImageBaseByCardInfo(cardName: string, edition: number, id: numbe
 function getCardImagLevelByCardInfo(name: string, edition: number, level: number, isGold = false) {
   const cardEdition = CARD_EDITIONS[edition];
   const gold = isGold ? '_gold' : '';
-  const url = `${IMAGE_BASE_URL}/cards_by_level/${cardEdition}/${name}_lv${level}${gold}.png`;
+  const url = `${IMAGE_BASE_URL}cards_by_level/${cardEdition}/${name}_lv${level}${gold}.png`;
   return encodeURI(url);
 }

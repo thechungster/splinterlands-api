@@ -8,7 +8,7 @@ import {
   SplinterlandsSettings,
 } from './types';
 
-const DEFAULT_API_URL = 'https://api2.splinterlands.com';
+const DEFAULT_API_URL = 'https://api2.splinterlands.com/';
 
 const GET_ALL_CARDS_ENDPOINT = 'cards/get_details';
 const GET_COLLECTION_ENDPOINT = 'cards/collection/';
@@ -19,13 +19,17 @@ const OUTSTANDING_MATCH_ENDPOINT = 'players/outstanding_match?username=';
 const CARD_DETAILS_ENDPOINT = 'cards/find?ids=';
 const SETTINGS_ENDPOINT = 'settings';
 const GET_PLAYER_DETAILS_ENDPOINT = 'players/details?name=';
+// @ts-ignore
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 /**
  * Returns the past 50 battles from the user.
  * https://api2.splinterlands.com/battle/history?player=bubke
  */
 export async function getPlayerBattles(player: string): Promise<PlayerBattlesResponse> {
-  return await makeApiGetRequest(GET_BATTLES_ENDPOINT + player).then((response) => response.json());
+  return (await makeApiGetRequest(GET_BATTLES_ENDPOINT + player).then((response) =>
+    response.json()
+  )) as Promise<PlayerBattlesResponse>;
 }
 
 /**
@@ -41,7 +45,9 @@ export async function getPlayerQuest(player: string) {
  * https://api2.splinterlands.com/players/quests?username=bubke
  */
 export async function getPlayerDetails(username: string): Promise<PlayerDetailInfo> {
-  return await makeApiGetRequest(GET_PLAYER_DETAILS_ENDPOINT + username).then((response) => response.json());
+  return (await makeApiGetRequest(GET_PLAYER_DETAILS_ENDPOINT + username).then((response) =>
+    response.json()
+  )) as Promise<PlayerDetailInfo>;
 }
 
 /**
@@ -49,7 +55,7 @@ export async function getPlayerDetails(username: string): Promise<PlayerDetailIn
  * https://api2.splinterlands.com/cards/get_details
  */
 export async function getAllCardDetails(): Promise<CardDetail[]> {
-  return makeApiGetRequest(GET_ALL_CARDS_ENDPOINT).then((response) => response.json());
+  return makeApiGetRequest(GET_ALL_CARDS_ENDPOINT).then((response) => response.json()) as Promise<CardDetail[]>;
 }
 
 /**
@@ -77,7 +83,9 @@ export async function getPlayerCollectionCards(player: string): Promise<PlayerCo
  * https://api2.splinterlands.com/battle/result?id=sm_gyjLSvXAUyhWfBhJOymA
  */
 export async function getSingleBattle(battleId: string): Promise<BattleResult> {
-  return await makeApiGetRequest(GET_SINGLE_BATTLE_ENDPOINT + battleId).then((response) => response.json());
+  return (await makeApiGetRequest(GET_SINGLE_BATTLE_ENDPOINT + battleId).then((response) =>
+    response.json()
+  )) as Promise<BattleResult>;
 }
 
 /**
@@ -85,7 +93,9 @@ export async function getSingleBattle(battleId: string): Promise<BattleResult> {
  * https://api2.splinterlands.com/players/outstanding_match?username=bubke
  */
 export async function getOutstandingMatch(player: string): Promise<OutstandingMatchResponse | null> {
-  return await makeApiGetRequest(OUTSTANDING_MATCH_ENDPOINT + player).then((response) => response.json());
+  return (await makeApiGetRequest(OUTSTANDING_MATCH_ENDPOINT + player).then((response) =>
+    response.json()
+  )) as Promise<OutstandingMatchResponse | null>;
 }
 
 /**
@@ -93,7 +103,9 @@ export async function getOutstandingMatch(player: string): Promise<OutstandingMa
  * https://api2.splinterlands.com/settings
  */
 export async function getSettings(): Promise<SplinterlandsSettings> {
-  return await makeApiGetRequest(SETTINGS_ENDPOINT).then((response) => response.json());
+  return (await makeApiGetRequest(SETTINGS_ENDPOINT).then((response) =>
+    response.json()
+  )) as Promise<SplinterlandsSettings>;
 }
 
 const makeApiGetRequest = async (endpoint: string) => {
