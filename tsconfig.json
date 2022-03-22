@@ -5,7 +5,7 @@
       "outDir": "./lib",
       "declaration": true,
       "strict": true,
-      "lib": ["es2015"],
+      "lib": ["es2015", "DOM"],
       "resolveJsonModule": true
     },  
     "include": ["src", "index.ts"],

@@ -857,3 +857,98 @@ export interface PlayerDetailInfo {
   is_banned: boolean;
   season_details: {};
 }
+
+//https://api2.splinterlands.com/market/for_rent_grouped
+export interface ForRentGroupedCard {
+  card_detail_id: number;
+  gold: boolean;
+  edition: number;
+  qty: number;
+  low_price_bcx: number;
+  low_price: number;
+  high_price: number;
+  level: number;
+  mana: number;
+}
+
+export interface ForRentCardDetailed {
+  fee_percent: number;
+  uid: string;
+  seller: string;
+  card_detail_id: number;
+  xp: number;
+  gold: boolean;
+  edition: number;
+  buy_price: string;
+  currency: string;
+  desc?: any;
+  type: string;
+  market_id: string;
+  last_transferred_block?: any;
+  last_transferred_date?: any;
+  last_used_block: number;
+  last_used_date: Date;
+  last_used_player: string;
+}
+
+export interface ForSaleGroupedCard {
+  card_detail_id: number;
+  gold: boolean;
+  edition: number;
+  qty: number;
+  low_price_bcx: number;
+  low_price: number;
+  high_price: number;
+  level: number;
+  mana: number;
+}
+
+export interface ForSaleDetailedCard {
+  fee_percent: number;
+  uid: string;
+  seller: string;
+  card_detail_id: number;
+  xp: number;
+  gold: boolean;
+  edition: number;
+  buy_price: string;
+  currency: string;
+  desc?: any;
+  type: string;
+  market_id: string;
+  last_transferred_block?: number;
+  last_transferred_date?: Date;
+  last_used_block?: number;
+  last_used_date?: Date;
+  last_used_player: string;
+}
+
+export interface ActiveRental {
+  id: number;
+  sell_trx_id: string;
+  seller: string;
+  num_cards: number;
+  buy_price: string;
+  fee_percent: number;
+  market_item_id: number;
+  rental_tx: string;
+  rental_date: Date;
+  renter: string;
+  status: number;
+  market_account: string;
+  rental_days: number;
+  next_rental_payment: Date;
+  payment_currency: string;
+  payment_amount: string;
+  escrow_currency: string;
+  escrow_amount: string;
+  paid_amount: string;
+  cancel_tx: string;
+  cancel_player: string;
+  cancel_date?: Date;
+  card_id: string;
+  card_detail_id: number;
+  gold: boolean;
+  xp: number;
+  edition: number;
+}

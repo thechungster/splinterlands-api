@@ -16,28 +16,28 @@ const CARD_SETS = [
 ];
 const CARD_EDITIONS = ['alpha', 'beta', 'promo', 'reward', 'untamed', 'dice', 'gladius', 'chaos'];
 
-export function getCardImageBaseById(cardId: number, gold = false) {
+export function getCardImageBaseById(cardId: number, gold = false, edition?: number) {
   if (cardId > cards.length) {
     throw new Error('This card is not yet supported. Please make an issue request for the package');
   }
   const cardDetail = cards[cardId - 1] as CardDetail;
   const allEditions = cardDetail.editions.split(',');
-  const edition = Number(allEditions[allEditions.length - 1]);
+  edition = edition ?? Number(allEditions[allEditions.length - 1]);
   const cardName = cardDetail.name;
 
   return getCardImageBaseByCardInfo(cardName, edition, cardId, gold);
 }
 
-export function getCardImageLevelById(cardId: number, level: number, isGold = false) {
+export function getCardImageLevelById(cardId: number, level: number, isGold = false, edition?: number) {
   if (cardId > cards.length) {
     throw new Error('This card is not yet supported. Please make an issue request for the package');
   }
   const cardDetail = cards[cardId - 1] as CardDetail;
   const allEditions = cardDetail.editions.split(',');
-  const edition = Number(allEditions[allEditions.length - 1]);
+  edition = edition ?? Number(allEditions[allEditions.length - 1]);
   const cardName = cardDetail.name;
 
-  getCardImagLevelByCardInfo(cardName, edition, level, isGold);
+  return getCardImageLevelByCardInfo(cardName, edition, level, isGold);
 }
 
 function getCardImageBaseByCardInfo(cardName: string, edition: number, id: number, gold = false): string {
@@ -50,7 +50,7 @@ function getCardImageBaseByCardInfo(cardName: string, edition: number, id: numbe
   return encodeURI(url);
 }
 
-function getCardImagLevelByCardInfo(name: string, edition: number, level: number, isGold = false) {
+function getCardImageLevelByCardInfo(name: string, edition: number, level: number, isGold = false) {
   const cardEdition = CARD_EDITIONS[edition];
   const gold = isGold ? '_gold' : '';
   const url = `${IMAGE_BASE_URL}cards_by_level/${cardEdition}/${name}_lv${level}${gold}.png`;

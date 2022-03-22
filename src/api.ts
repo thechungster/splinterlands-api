@@ -1,6 +1,10 @@
 import {
+  ActiveRental,
   BattleResult,
   CardDetail,
+  ForRentGroupedCard,
+  ForSaleDetailedCard,
+  ForSaleGroupedCard,
   OutstandingMatchResponse,
   PlayerBattlesResponse,
   PlayerCollectionCardResponse,
@@ -19,8 +23,11 @@ const OUTSTANDING_MATCH_ENDPOINT = 'players/outstanding_match?username=';
 const CARD_DETAILS_ENDPOINT = 'cards/find?ids=';
 const SETTINGS_ENDPOINT = 'settings';
 const GET_PLAYER_DETAILS_ENDPOINT = 'players/details?name=';
-// @ts-ignore
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+const FOR_RENT_GROUPED_ENDPOINT = 'market/for_rent_grouped';
+const FOR_RENT_BY_CARD_ENDPOINT = 'market/for_rent_by_card';
+const ACTIVE_RENTALS_ENDPOINT = 'market/active_rentals?owner=';
+const FOR_SALE_GROUPED_ENDPOINT = 'market/for_sale_grouped';
+const FOR_SALE_BY_CARD_ENDPOINT = 'market/for_sale_by_card';
 
 /**
  * Returns the past 50 battles from the user.
@@ -42,10 +49,10 @@ export async function getPlayerQuest(player: string) {
 
 /**
  * Returns the information of a player
- * https://api2.splinterlands.com/players/quests?username=bubke
+ * https://api2.splinterlands.com/players/details?name=bubke
  */
-export async function getPlayerDetails(username: string): Promise<PlayerDetailInfo> {
-  return (await makeApiGetRequest(GET_PLAYER_DETAILS_ENDPOINT + username).then((response) =>
+export async function getPlayerDetails(player: string): Promise<PlayerDetailInfo> {
+  return (await makeApiGetRequest(GET_PLAYER_DETAILS_ENDPOINT + player).then((response) =>
     response.json()
   )) as Promise<PlayerDetailInfo>;
 }
@@ -60,7 +67,7 @@ export async function getAllCardDetails(): Promise<CardDetail[]> {
 
 /**
  * Returns the details of the given cards uids.
- * https://api2.splinterlands.com/cards/find?ids=PLACEHOLDER,PLACEHOLDER
+ * https://api2.splinterlands.com/cards/find?ids=C4-159-5PENLDCX68,C7-401-KHC7OS88PS
  */
 export async function getCardDetailsFromUid(cards: string[]) {
   const cardsStr = cards.join(',');
@@ -106,6 +113,50 @@ export async function getSettings(): Promise<SplinterlandsSettings> {
   return (await makeApiGetRequest(SETTINGS_ENDPOINT).then((response) =>
     response.json()
   )) as Promise<SplinterlandsSettings>;
+}
+
+/**
+ * Returns the summary of all cards that are for rent.
+ * https://api2.splinterlands.com/market/for_rent_grouped
+ */
+export async function getForRentCardSummary(): Promise<ForRentGroupedCard[]> {
+  return await makeApiGetRequest(FOR_RENT_GROUPED_ENDPOINT).then((response) => response.json());
+}
+
+/**
+ * Returns the summary of all cards that are for rent.
+ * https://api2.splinterlands.com/market/for_rent_by_card?card_detail_id=205&gold=false&edition=2
+ */
+export async function getForRentByCard(cardId: number, edition: number, gold: boolean): Promise<ForRentGroupedCard[]> {
+  return await makeApiGetRequest(
+    FOR_RENT_BY_CARD_ENDPOINT + `?card_detail_id=${cardId}&gold=${gold}&edition=${edition}`
+  ).then((response) => response.json());
+}
+
+/**
+ * Returns the all active rentals by username
+ * https://api2.splinterlands.com/market/active_rentals?owner=bubke
+ */
+export async function getActiveRentals(owner: string): Promise<ActiveRental[]> {
+  return await makeApiGetRequest(ACTIVE_RENTALS_ENDPOINT + owner).then((response) => response.json());
+}
+
+/**
+ * Returns the summary of all cards that are for sale.
+ * https://api2.splinterlands.com/market/for_sale_grouped
+ */
+export async function getForSaleGrouped(): Promise<ForSaleGroupedCard[]> {
+  return await makeApiGetRequest(FOR_SALE_GROUPED_ENDPOINT).then((response) => response.json());
+}
+
+/**
+ * Returns the detailed maket for sale information by card
+ * https://api2.splinterlands.com/market/for_sale_by_card?card_detail_id=334&gold=false&edition=3
+ */
+export async function getForSaleByCard(cardId: number, edition: number, gold: boolean): Promise<ForSaleDetailedCard[]> {
+  return await makeApiGetRequest(
+    FOR_SALE_BY_CARD_ENDPOINT + `?card_detail_id=${cardId}&gold=${gold}&edition=${edition}`
+  ).then((response) => response.json());
 }
 
 const makeApiGetRequest = async (endpoint: string) => {

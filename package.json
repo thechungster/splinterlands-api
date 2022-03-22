@@ -1,6 +1,6 @@
 {
   "name": "splinterlands-web-api",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Package for the Splinterlands API. Includes common API calls as well as easily creating image urls to cards.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,8 +9,6 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
-    "prepublishOnly": "npm run lint",
-    "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
@@ -43,8 +41,5 @@
   },
   "files": [
     "lib/**/*"
-  ],
-  "dependencies": {
-    "node-fetch": "^3.2.3"
-  }
+  ]
 }
