@@ -33,7 +33,7 @@ export function getCardImageBaseById(cardInfo: number | CardDetail, gold = false
   return getCardImageBaseByCardInfo(cardName, edition, cardDetail.id, gold);
 }
 
-export function getCardImageLevelById(cardInfo: number, level: number, isGold = false, edition?: number) {
+export function getCardImageLevelById(cardInfo: number | CardDetail, level: number, isGold = false, edition?: number) {
   let cardDetail: CardDetail;
   if (typeof cardInfo === 'number') {
     if (cardInfo > cards.length) {
