@@ -222,7 +222,7 @@ export interface PlayerCardDetail {
   xp: number;
   gold: boolean;
   edition: number;
-  market_id?: any;
+  market_id?: string;
   buy_price?: any;
   market_listing_type?: string;
   market_listing_status?: number;

@@ -9,5 +9,5 @@
       "resolveJsonModule": true
     },  
     "include": ["src", "index.ts"],
-    "exclude": ["node_modules", "**/__tests__/*", "src/*.json"]
+    "exclude": ["node_modules", "**/__tests__/*", "src/cards.json", "**/**.json"]
   }

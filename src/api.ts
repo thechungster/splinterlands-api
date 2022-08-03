@@ -33,8 +33,9 @@ const FOR_SALE_BY_CARD_ENDPOINT = 'market/for_sale_by_card';
  * Returns the past 50 battles from the user.
  * https://api2.splinterlands.com/battle/history?player=bubke
  */
-export async function getPlayerBattles(player: string): Promise<PlayerBattlesResponse> {
-  return (await makeApiGetRequest(GET_BATTLES_ENDPOINT + player).then((response) =>
+export async function getPlayerBattles(player: string, format?: string): Promise<PlayerBattlesResponse> {
+  const postFix = format ? `&format=${format}` : '';
+  return (await makeApiGetRequest(GET_BATTLES_ENDPOINT + player + postFix).then((response) =>
     response.json()
   )) as Promise<PlayerBattlesResponse>;
 }

@@ -50,7 +50,7 @@ These are the current api calls that are supported.
 
 ## Battle
 
-- `getPlayerBattles(username)`
+- `getPlayerBattles(username, /*optional*/ format)`
   - https://api2.splinterlands.com/battle/history?player=bubke
 - `getSingleBattle(battleId)`
   - https://api2.splinterlands.com/battle/result?id=sm_gyjLSvXAUyhWfBhJOymA

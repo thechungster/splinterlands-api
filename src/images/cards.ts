@@ -16,23 +16,33 @@ const CARD_SETS = [
 ];
 const CARD_EDITIONS = ['alpha', 'beta', 'promo', 'reward', 'untamed', 'dice', 'gladius', 'chaos'];
 
-export function getCardImageBaseById(cardId: number, gold = false, edition?: number) {
-  if (cardId > cards.length) {
-    throw new Error('This card is not yet supported. Please make an issue request for the package');
+export function getCardImageBaseById(cardInfo: number | CardDetail, gold = false, edition?: number) {
+  let cardDetail: CardDetail;
+  if (typeof cardInfo === 'number') {
+    if (cardInfo > cards.length) {
+      throw new Error('This card is not yet supported. Please make an issue request for the package');
+    }
+    cardDetail = cards[cardInfo - 1] as CardDetail;
+  } else {
+    cardDetail = cardInfo;
   }
-  const cardDetail = cards[cardId - 1] as CardDetail;
   const allEditions = cardDetail.editions.split(',');
   edition = edition ?? Number(allEditions[allEditions.length - 1]);
   const cardName = cardDetail.name;
 
-  return getCardImageBaseByCardInfo(cardName, edition, cardId, gold);
+  return getCardImageBaseByCardInfo(cardName, edition, cardDetail.id, gold);
 }
 
-export function getCardImageLevelById(cardId: number, level: number, isGold = false, edition?: number) {
-  if (cardId > cards.length) {
-    throw new Error('This card is not yet supported. Please make an issue request for the package');
+export function getCardImageLevelById(cardInfo: number, level: number, isGold = false, edition?: number) {
+  let cardDetail: CardDetail;
+  if (typeof cardInfo === 'number') {
+    if (cardInfo > cards.length) {
+      throw new Error('This card is not yet supported. Please make an issue request for the package');
+    }
+    cardDetail = cards[cardInfo - 1] as CardDetail;
+  } else {
+    cardDetail = cardInfo;
   }
-  const cardDetail = cards[cardId - 1] as CardDetail;
   const allEditions = cardDetail.editions.split(',');
   edition = edition ?? Number(allEditions[allEditions.length - 1]);
   const cardName = cardDetail.name;
