@@ -27,6 +27,7 @@ export interface BattleHistory {
   leaderboard: number;
   reward_dec: string;
   reward_sps?: any;
+  format: string;
 }
 
 export interface OutstandingMatchResponse {
@@ -158,6 +159,31 @@ export interface BattleResult {
   tournament: TournamentInfo;
   player_1_data: PlayerBattleData;
   player_2_data: PlayerBattleData;
+}
+
+export interface BattleDetails {
+  loser: string;
+  winner: string;
+  type: string;
+  team1: BattleTeam;
+  team2: BattleTeam;
+}
+
+export interface BattleTeam {
+  color: string;
+  monsters: CollectionCard[];
+  summoner: CollectionCard;
+  player: string;
+  rating: number;
+}
+
+export interface CollectionCard {
+  player?: string;
+  uid?: string;
+  card_detail_id: number;
+  gold: boolean;
+  edition: number;
+  level: number;
 }
 
 export enum CardColor {
