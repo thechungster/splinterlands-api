@@ -132,31 +132,7 @@ export interface PlayerBattleData {
   alt_name?: any;
 }
 
-export interface BattleResult {
-  battle_queue_id_1: string;
-  battle_queue_id_2: string;
-  player_1_rating_initial: number;
-  player_2_rating_initial: number;
-  winner: string;
-  player_1_rating_final: number;
-  player_2_rating_final: number;
-  details: string;
-  player_1: string;
-  player_2: string;
-  created_date: Date;
-  match_type: string;
-  mana_cap: number;
-  current_streak: number;
-  ruleset: string;
-  inactive: string;
-  settings: string;
-  block_num: number;
-  rshares: number;
-  dec_info: string;
-  leaderboard: number;
-  reward_dec: string;
-  reward_sps?: any;
-  tournament: TournamentInfo;
+export interface BattleResult extends BattleHistory {
   player_1_data: PlayerBattleData;
   player_2_data: PlayerBattleData;
 }
