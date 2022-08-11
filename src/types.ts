@@ -194,7 +194,7 @@ export interface CardDetailDistribution {
   edition: number;
   num_cards: string;
   total_xp: string;
-  num_burned?: string;
+  num_burned: string;
   total_burned_xp?: string;
 }
 
