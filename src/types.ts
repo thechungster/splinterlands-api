@@ -199,21 +199,22 @@ export interface CardDetailDistribution {
 }
 
 export interface CardDetail {
+  // 1 indexed.
   id: number;
   name: string;
-  color: string;
-  type: string;
-  sub_type?: any;
+  color: CardColor;
+  type: CardType;
   rarity: number;
-  drop_rate: number;
-  stats: CardStats;
   is_starter: boolean;
   editions: string;
-  created_block_num?: number;
-  last_update_tx: string;
+  stats: CardStats;
+  drop_rate: number;
+  sub_type: any;
+  created_block_num: any;
+  last_update_tx: string | null;
   total_printed: number;
   is_promo: boolean;
-  tier?: number;
+  tier: any;
   distribution: CardDetailDistribution[];
 }
 
