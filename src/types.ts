@@ -956,6 +956,40 @@ export interface ActiveRental {
   edition: number;
 }
 
+export interface GuildMemberResponse {
+  guild_id: string;
+  player: string;
+  rank: number;
+  join_date: string;
+  status: string;
+  data: string;
+  rating: number;
+  modern_rating: number;
+  avatar_id: number;
+  league: number;
+  modern_league: number;
+  collection_power: number;
+  starter_pack_purchase: boolean;
+  is_online: boolean;
+}
+
+export interface GuildMemberContributions {
+  arena: GuildPaymentInfo;
+  barracks: GuildPaymentInfo;
+  guild_hall: number;
+  guild_shop: GuildPaymentInfo;
+  quest_lodge: number;
+}
+
+export interface GuildMemberData {
+  contributions: GuildMemberContributions;
+}
+
+export interface GuildPaymentInfo {
+  DEC: number;
+  CROWN: number;
+}
+
 export enum Ability {
   AFFLICTION = 'Affliction',
   AMPLIFY = 'Amplify',

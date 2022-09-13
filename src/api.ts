@@ -5,6 +5,7 @@ import {
   ForRentGroupedCard,
   ForSaleDetailedCard,
   ForSaleGroupedCard,
+  GuildMemberResponse,
   OutstandingMatchResponse,
   PlayerBattlesResponse,
   PlayerCollectionCardResponse,
@@ -28,6 +29,7 @@ const FOR_RENT_BY_CARD_ENDPOINT = 'market/for_rent_by_card';
 const ACTIVE_RENTALS_ENDPOINT = 'market/active_rentals?owner=';
 const FOR_SALE_GROUPED_ENDPOINT = 'market/for_sale_grouped';
 const FOR_SALE_BY_CARD_ENDPOINT = 'market/for_sale_by_card';
+const GUILD_MEMBERS_ENDPOINT = 'guilds/members?guild_id=';
 
 /**
  * Returns the past 50 battles from the user.
@@ -151,13 +153,21 @@ export async function getForSaleGrouped(): Promise<ForSaleGroupedCard[]> {
 }
 
 /**
- * Returns the detailed maket for sale information by card
+ * Returns the detailed market for sale information by card
  * https://api2.splinterlands.com/market/for_sale_by_card?card_detail_id=334&gold=false&edition=3
  */
 export async function getForSaleByCard(cardId: number, edition: number, gold: boolean): Promise<ForSaleDetailedCard[]> {
   return await makeApiGetRequest(
     FOR_SALE_BY_CARD_ENDPOINT + `?card_detail_id=${cardId}&gold=${gold}&edition=${edition}`
   ).then((response) => response.json());
+}
+
+/**
+ * Returns the member information for a guild.
+ * https://api2.splinterlands.com/guilds/members?guild_id=36f92c816a25becbdc351abbc82c0ac62ea532d5
+ */
+export async function getGuildMembers(guildId: string): Promise<GuildMemberResponse> {
+  return await makeApiGetRequest(GUILD_MEMBERS_ENDPOINT + guildId).then((response) => response.json());
 }
 
 const makeApiGetRequest = async (endpoint: string) => {

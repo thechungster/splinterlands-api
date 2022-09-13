@@ -1,6 +1,6 @@
 {
   "name": "splinterlands-web-api",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Package for the Splinterlands API. Includes common API calls as well as easily creating image urls to cards.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
