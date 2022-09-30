@@ -13,8 +13,9 @@ const CARD_SETS = [
   'cards_untamed',
   'cards_gladiator',
   'cards_chaos',
+  'cards_battle_rift',
 ];
-const CARD_EDITIONS = ['alpha', 'beta', 'promo', 'reward', 'untamed', 'dice', 'gladius', 'chaos'];
+const CARD_EDITIONS = ['alpha', 'beta', 'promo', 'reward', 'untamed', 'dice', 'gladius', 'chaos', 'rift'];
 
 export function getCardImageBaseById(cardInfo: number | CardDetail, gold = false, edition?: number) {
   let cardDetail: CardDetail;
