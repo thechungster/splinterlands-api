@@ -13,7 +13,7 @@ const CARD_SETS = [
   'cards_untamed',
   'cards_gladiator',
   'cards_chaos',
-  'cards_battle_rift',
+  'cards_riftwatchers',
 ];
 const CARD_EDITIONS = ['alpha', 'beta', 'promo', 'reward', 'untamed', 'dice', 'gladius', 'chaos', 'rift'];
 
