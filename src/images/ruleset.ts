@@ -69,6 +69,9 @@ export const RULESET_IMAGE = {
 };
 
 export function getRulesetImage(ruleset: string) {
+  if (!ruleset) {
+    return '';
+  }
   const upper = ruleset.replace(' &', '_').split(' ').join('_').toUpperCase();
   // @ts-ignore
   return RULESET_IMAGE[upper] || '';
