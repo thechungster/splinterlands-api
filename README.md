@@ -54,8 +54,8 @@ These are the current api calls that are supported.
   - https://api2.splinterlands.com/battle/history?player=bubke
 - `getSingleBattle(battleId)`
   - https://api2.splinterlands.com/battle/result?id=sm_gyjLSvXAUyhWfBhJOymA
-- `getOutstandingMatch(username)`
-  - https://api2.splinterlands.com/players/outstanding_match?username=bubke
+- `getOutstandingMatch(username, accessToken)`
+  - https://api2.splinterlands.com/players/outstanding_match?username=bubke&token=accessToken
 
 ## Market
 

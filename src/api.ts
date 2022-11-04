@@ -100,10 +100,13 @@ export async function getSingleBattle(battleId: string): Promise<BattleResult> {
 
 /**
  * Returns the current match info of
- * https://api2.splinterlands.com/players/outstanding_match?username=bubke
+ * https://api2.splinterlands.com/players/outstanding_match?username=bubke&token=accessToken
  */
-export async function getOutstandingMatch(player: string): Promise<OutstandingMatchResponse | null> {
-  return (await makeApiGetRequest(OUTSTANDING_MATCH_ENDPOINT + player).then((response) =>
+export async function getOutstandingMatch(
+  player: string,
+  accessToken: string
+): Promise<OutstandingMatchResponse | null> {
+  return (await makeApiGetRequest(OUTSTANDING_MATCH_ENDPOINT + player + `&token=${accessToken}`).then((response) =>
     response.json()
   )) as Promise<OutstandingMatchResponse | null>;
 }
