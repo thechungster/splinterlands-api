@@ -151,6 +151,7 @@ export interface BattleTeam {
   summoner: CollectionCard;
   player: string;
   rating: number;
+  playerName?: string;
 }
 
 export interface CollectionCard {
