@@ -11,7 +11,7 @@ import {
   PlayerCollectionCardResponse,
   PlayerDetailInfo,
   SplinterlandsSettings,
-} from './types';
+} from 'splinterlands-types';
 
 const DEFAULT_API_URL = 'https://api2.splinterlands.com/';
 

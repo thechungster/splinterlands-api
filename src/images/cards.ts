@@ -1,5 +1,5 @@
 import * as cards from '../cards.json';
-import { CardDetail } from '../types';
+import { CardDetail } from 'splinterlands-types';
 
 const NEW_REWARD_CARD_ID_START = 330;
 const IMAGE_BASE_URL = 'https://d36mxiodymuqjm.cloudfront.net/';
