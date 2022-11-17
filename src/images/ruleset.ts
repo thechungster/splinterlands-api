@@ -57,15 +57,18 @@ export const RULESET_IMAGE = {
   EQUAL_OPPORTUNITY:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_equal-opportunity_150.png',
   THORNS: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_thorns_150.png',
+  BRIAR_PATCH: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_briar-patch_150.png',
   EXPLOSIVE_WEAPONRY:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_explosive-weaponry_150.png',
-  MAGIC_REFLECT:
-    'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_magic-reflect_150.png',
+  COUNTERSPELL: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_counterspell_150.png',
   HOLY_PROTECTION:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_holy-protection_150.png',
-  RETURN_FIRE: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_return-fire_150.png',
+  MAGIC_REFLECT:
+    'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_magic-reflect_150.png',
   SPREADING_FURY:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_spreading-fury_150.png',
+  FIRE___REGRET: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_fire-regret_150.png',
+  RETURN_FIRE: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_return-fire_150.png',
 };
 
 export function getRulesetImage(ruleset: string) {
