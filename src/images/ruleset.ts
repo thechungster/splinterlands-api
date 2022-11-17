@@ -1,15 +1,15 @@
 /*
  * Generate this by going to https://api2.splinterlands.com/settings and running
- var output = '';
+  var output = '';
     window.json.battles.rulesets.forEach((rule) => {
     var ruleName = rule.name.replace(' &', '').replaceAll(' ', '-').toLowerCase();
     var rulesetUrl = `https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_${ruleName}_150.png`;
     var variableRule = rule.name.replace(' &', '_').split(' ').join('_').toUpperCase();
-    var str = `export const RULESET_${variableRule}_IMAGE = '${rulesetUrl}';`
+    var str = `${variableRule}:'${rulesetUrl}',\n`
     output+= str;
-    output += '\n'
     });
-copy(output)
+    copy(output);
+    output;
  */
 
 export const RULESET_IMAGE = {
@@ -67,7 +67,7 @@ export const RULESET_IMAGE = {
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_magic-reflect_150.png',
   SPREADING_FURY:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_spreading-fury_150.png',
-  FIRE___REGRET: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_fire-regret_150.png',
+  FIRE__REGRET: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_fire-regret_150.png',
   RETURN_FIRE: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_return-fire_150.png',
 };
 
