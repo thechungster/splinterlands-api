@@ -66,7 +66,7 @@ export const RULESET_IMAGE = {
   MAGIC_REFLECT:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_magic-reflect_150.png',
   WHAT_DOESNT_KILL_YOU:
-    'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat_rule-spreading-fury_150.png',
+    'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_what-doesn-t-kill-you_150.png',
   RETURN_FIRE: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_return-fire_150.png',
   SPREADING_FURY:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_spreading-fury_150.png',
