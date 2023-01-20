@@ -82,7 +82,7 @@ export function getRulesetImage(ruleset: string) {
   if (!ruleset) {
     return '';
   }
-  const upper = ruleset.replace(' &', '_').split(' ').join('_').toUpperCase();
+  const upper = ruleset.replace(' &', '_').replace("’", '').split(' ').join('_').toUpperCase();
   // @ts-ignore
   return RULESET_IMAGE[upper] || '';
 }
