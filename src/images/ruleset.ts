@@ -1,8 +1,8 @@
 /*
  * Generate this by going to https://api2.splinterlands.com/settings and running
-  var output = '';
+    var output = '';
     window.json.battles.rulesets.forEach((rule) => {
-    var ruleName = rule.name.replace(' &', '').replaceAll(' ', '-').toLowerCase();
+    var ruleName = rule.name.replace(' &', '').replaceAll(' ', '-').replaceAll('’','').toLowerCase();
     var rulesetUrl = `https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_${ruleName}_150.png`;
     var variableRule = rule.name.replace(' &', '_').split(' ').join('_').toUpperCase();
     var str = `${variableRule}:'${rulesetUrl}',\n`
@@ -56,33 +56,36 @@ export const RULESET_IMAGE = {
   STAMPEDE: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_stampede_150.png',
   EQUAL_OPPORTUNITY:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_equal-opportunity_150.png',
+  BRIAR_PATCH: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_briar-patch_150.png',
+  THORNS: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_thorns_150.png',
   EXPLOSIVE_WEAPONRY:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_explosive-weaponry_150.png',
-  THORNS: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_thorns_150.png',
-  BRIAR_PATCH: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_briar-patch_150.png',
-  HOLY_PROTECTION:
-    'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_holy-protection_150.png',
-  COUNTERSPELL: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_counterspell_150.png',
   MAGIC_REFLECT:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_magic-reflect_150.png',
-  WHAT_DOESNT_KILL_YOU:
-    'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_what-doesn-t-kill-you_150.png',
+  COUNTERSPELL: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_counterspell_150.png',
+  HOLY_PROTECTION:
+    'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_holy-protection_150.png',
   RETURN_FIRE: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_return-fire_150.png',
+  FIRE__REGRET: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_fire-regret_150.png',
   SPREADING_FURY:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_spreading-fury_150.png',
-  FIRE__REGRET: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_fire-regret_150.png',
+  WHAT_DOESNT_KILL_YOU:
+    'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_what-doesn-t-kill-you_150.png',
   TIS_BUT_SCRATCHES:
     'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_tis-but-scratches_150.png',
   UP_TO_ELEVEN: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_up-to-eleven_150.png',
   AIMLESS: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_aimless_150.png',
   FEROCITY: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_ferocity_150.png',
+  GOING_THE_DISTANCE:
+    'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_going-the-distance_150.png',
+  WANDS_OUT: 'https://d36mxiodymuqjm.cloudfront.net/website/icons/rulesets/new/img_combat-rule_wands-out_150.png',
 };
 
 export function getRulesetImage(ruleset: string) {
   if (!ruleset) {
     return '';
   }
-  const upper = ruleset.replace(' &', '_').replace("’", '').split(' ').join('_').toUpperCase();
+  const upper = ruleset.replace(' &', '_').replace('’', '').split(' ').join('_').toUpperCase();
   // @ts-ignore
   return RULESET_IMAGE[upper] || '';
 }
