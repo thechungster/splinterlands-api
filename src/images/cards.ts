@@ -14,9 +14,10 @@ const CARD_SETS = [
   'cards_gladiator',
   'cards_chaos',
   'cards_riftwatchers',
+  'cards_soulbound',
   'cards_soulbound'
 ];
-const CARD_EDITIONS = ['alpha', 'beta', 'promo', 'reward', 'untamed', 'dice', 'gladius', 'chaos', 'rift', 'soulbound'];
+const CARD_EDITIONS = ['alpha', 'beta', 'promo', 'reward', 'untamed', 'dice', 'gladius', 'chaos', 'rift', 'unknown', 'soulbound'];
 
 export function getCardImageBaseById(cardInfo: number | CardDetail, gold = false, edition?: number) {
   let cardDetail: CardDetail;
