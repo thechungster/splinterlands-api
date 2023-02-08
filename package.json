@@ -44,6 +44,6 @@
     "lib/**/*"
   ],
   "dependencies": {
-    "splinterlands-types": "^0.0.1"
+    "splinterlands-types": "^0.0.2"
   }
 }
